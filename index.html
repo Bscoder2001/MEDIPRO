@@ -1,38 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthcare ERP</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MEDIPRO</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="user-profile">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture">
-                <div class="user-info">
-                    <h3>John Doe</h3>
-                    <p>Admin</p>
-                </div>
-            </div>
-            <h2>Healthcare ERP</h2>
-            <ul>
-                <li><a href="#patient-management" id="patient-management-link">Patient Management</a></li>
-                <li><a href="#appointments" id="appointments-link">Appointments</a></li>
-                <li><a href="#billing" id="billing-link">Billing</a></li>
-                <li><a href="#inventory" id="inventory-link">Inventory</a></li>
-            </ul>
-        </div>
-        <div class="main-content">
-            <h1>Welcome to Healthcare ERP</h1>
-            <p>Select a module from the left panel to get started.</p>
-            <div id="content"></div>
-        </div>
-    </div>
-    
-    <!-- CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="script.js"></script>
+
+	<!-- Invoice Modal -->
+	<div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="invoiceModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="invoiceModalLabel">Generated Invoice</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!-- Invoice content will appear here -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" onclick="window.print();">Print</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modals -->
+	<div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="validationModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="validationModalLabel">Validation Error</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!-- Validation error message will appear here -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="successModalLabel">Success</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Your data has been successfully captured.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="mainContainer">
+		<div class="sidebar">
+			<div class="user-profile">
+				<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+					alt="Profile Picture">
+				<div class="user-info">
+					<h3>John Doe</h3>
+					<p>Admin</p>
+				</div>
+			</div>
+			<h2>MEDIPRO</h2>
+			<ul>
+				<li><a href="#patient-management" id="patient-management-link">Patient Management</a></li>
+				<li><a href="#appointments" id="appointments-link">Appointments</a></li>
+				<li><a href="#inventory" id="inventory-link">Inventory</a></li>
+				<li><a href="#billing" id="billing-link">Billing</a></li>
+			</ul>
+		</div>
+		<div class="main-content">
+			<h1>Welcome to MEDIPRO</h1>
+			<p>Select a module from the left panel to get started.</p>
+			<div id="content"></div>
+		</div>
+	</div>
+
+	<!-- CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
 </body>
+
 </html>

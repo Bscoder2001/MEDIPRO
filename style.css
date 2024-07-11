@@ -6,10 +6,56 @@ body {
     height: 100vh;
     width: 100vw;
 }
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #invoiceModal, #invoiceModal * {
+        visibility: visible;
+    }
+    #invoiceModal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+    }
+}
 
-.container {
+/* @media print {
+    body * {
+        visibility: hidden;
+    }
+    #invoiceModal {
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    #invoiceModal .modal-content {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: #fff;
+        box-shadow: none;
+        border: none;
+    }
+} */
+
+
+.mainContainer {
     display: flex;
     width: 100%;
+}
+.close {
+    width: auto !important;
+}
+.active {
+    color: #4CAF50 !important;
+    text-decoration: underline !important;
 }
 
 .sidebar {
