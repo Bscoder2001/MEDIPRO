@@ -1,13 +1,17 @@
-<div id="form-container">
-    <h1>Billing</h1>
-    <form id="billing-form" class="custom-form">
+<h1>Billing</h1>
+<form id="billing-form">
+    <div class="form-group">
         <label for="invoice-number">Invoice Number:</label>
-        <input type="text" id="invoice-number" name="invoice-number">
+        <input type="text" id="invoice-number" name="invoice-number" class="form-control">
+    </div>
+    <div class="form-group">
         <label for="patient-name">Patient Name:</label>
-        <input type="text" id="patient-name" name="patient-name">
+        <input type="text" id="patient-name" name="patient-name" class="form-control">
+    </div>
+    <div class="form-group">
         <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount">
-        <button type="submit" style="margin-bottom: 5px;">Submit</button>
-        <button id="generate-invoice">Generate Invoice</button>
-    </form>
-</div>
+        <input type="number" id="amount" name="amount" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button id="generate-invoice" class="btn btn-secondary ml-2">Generate Invoice</button>
+</form>

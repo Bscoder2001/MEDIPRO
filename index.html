@@ -5,101 +5,183 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>MEDIPRO</title>
-	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+		integrity="sha512-Ryj+lnFPpA+ct7D9PCtJPrnRkzfflfc5j3frzYdgbFWUP4B8RNZHBxK3izVWzUcP/DhGX/GhR5o8Q50UNiy1eA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		.user-profile img {
+			border: 3px solid #6c757d;
+		}
+
+		.user-info h4 {
+			color: #ffffff;
+			margin-bottom: 5px;
+		}
+
+		.user-info p {
+			color: #adb5bd;
+			margin-bottom: 0;
+		}
+
+		.sidebar {
+			width: 250px;
+			background-color: #007bff;
+			/* Updated background color to a vibrant blue */
+			padding: 20px 0;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow-y: auto;
+			transition: background-color 0.3s ease-in-out;
+			/* Smooth transition for background color */
+		}
+
+		.sidebar .nav-link {
+			color: #ffffff;
+			transition: color 0.3s ease-in-out;
+			/* Smooth transition for text color */
+		}
+
+		.sidebar .nav-link:hover {
+			background-color: #0056b3;
+			/* Darker shade on hover */
+		}
+
+		.sidebar .nav-link.active {
+			background-color: #0056b3;
+			/* Darker shade for active link */
+		}
+
+		.sidebar .user-profile img {
+			border: 3px solid #ffffff;
+			/* White border around profile picture */
+		}
+
+		.sidebar h2 {
+			color: #ffffff;
+			margin-bottom: 30px;
+			font-weight: bold;
+			/* Bold font weight for heading */
+		}
+
+		.main-content {
+			margin-left: 250px;
+			padding: 20px;
+			flex: 1;
+		}
+
+		.header {
+			background-color: #007bff;
+			color: #ffffff;
+			padding: 20px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			position: sticky;
+			top: 0;
+			width: 100%;
+			z-index: 999999999;
+		}
+
+		.header h1 {
+			margin-bottom: 10px;
+		}
+
+		.custom-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-form label {
+            font-weight: bold;
+        }
+
+        .custom-form input[type="text"],
+        .custom-form input[type="number"],
+        .custom-form input[type="date"],
+        .custom-form input[type="time"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .custom-form button[type="submit"],
+        .custom-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .custom-form button[type="submit"]:hover,
+        .custom-form button:hover {
+            background-color: #0056b3;
+        }
+	</style>
 </head>
 
 <body>
 
-	<!-- Invoice Modal -->
-	<div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="invoiceModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="invoiceModalLabel">Generated Invoice</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<!-- Invoice content will appear here -->
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary" onclick="window.print();">Print</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modals -->
-	<div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="validationModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="validationModalLabel">Validation Error</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<!-- Validation error message will appear here -->
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="successModalLabel">Success</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					Your data has been successfully captured.
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 	<div class="mainContainer">
+
 		<div class="sidebar">
-			<div class="user-profile">
+			<div class="user-profile text-center mb-4">
 				<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-					alt="Profile Picture">
-				<div class="user-info">
-					<h3>John Doe</h3>
+					alt="Profile Picture" class="rounded-circle" width="100" height="100">
+				<div class="user-info mt-2">
+					<h4>John Doe</h4>
 					<p>Admin</p>
 				</div>
 			</div>
-			<h2>MEDIPRO</h2>
-			<ul>
-				<li><a href="#patient-management" id="patient-management-link">Patient Management</a></li>
-				<li><a href="#appointments" id="appointments-link">Appointments</a></li>
-				<li><a href="#inventory" id="inventory-link">Inventory</a></li>
-				<li><a href="#billing" id="billing-link">Billing</a></li>
+			<h2 class="text-center mb-4">MEDIPRO</h2>
+			<ul class="nav flex-column">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#dashboard" id="dashboard-link"><i
+							class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#patient-management" id="patient-management-link"><i
+							class="fas fa-user-injured mr-2"></i>Patients</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#appointments" id="appointments-link"><i
+							class="fas fa-calendar-check mr-2"></i>Appointments</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#inventory" id="inventory-link"><i
+							class="fas fa-boxes mr-2"></i>Inventory</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#billing" id="billing-link"><i
+							class="fas fa-file-invoice-dollar mr-2"></i>Billing</a>
+				</li>
 			</ul>
 		</div>
+
 		<div class="main-content">
-			<h1>Welcome to MEDIPRO</h1>
-			<p>Select a module from the left panel to get started.</p>
-			<div id="content"></div>
+			<div class="header row justify-content-between align-items-center">
+				<div class="left">
+					<h1>Welcome to MEDIPRO</h1>
+				<p>Select a module from the left panel to get started.</p>
+				</div>
+				<button class="btn btn-danger logout-btn w-auto h-50"><i class="fas fa-sign-out-alt"></i> Logout</button>
+			</div>
+			<div id="content" class="custom-form"></div>
 		</div>
+
 	</div>
 
-	<!-- CDN -->
+	<!-- Bootstrap and other CDNs -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://kit.fontawesome.com/0a355cdffb.js" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<script src="script.js"></script>

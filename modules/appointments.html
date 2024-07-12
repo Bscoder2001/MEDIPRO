@@ -1,13 +1,16 @@
 <h1>Appointments</h1>
-<form id="appointment-form" class="custom-form">
-    <label for="appointment-date">Date:</label>
-    <input type="date" id="appointment-date" name="appointment-date">
-    <br>
-    <label for="appointment-time">Time:</label>
-    <input type="time" id="appointment-time" name="appointment-time">
-    <br>
-    <label for="doctor">Doctor:</label>
-    <input type="text" id="doctor" name="doctor">
-    <br>
-    <button type="submit">Schedule Appointment</button>
+<form id="appointment-form">
+    <div class="form-group">
+        <label for="appointment-date">Date:</label>
+        <input type="date" id="appointment-date" name="appointment-date" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="appointment-time">Time:</label>
+        <input type="time" id="appointment-time" name="appointment-time" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="doctor">Doctor:</label>
+        <input type="text" id="doctor" name="doctor" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Schedule Appointment</button>
 </form>
