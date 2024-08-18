@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MEDIPRO</title>
+	<title>MEDIPRO - Make solutions for Patients</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 		integrity="sha512-Ryj+lnFPpA+ct7D9PCtJPrnRkzfflfc5j3frzYdgbFWUP4B8RNZHBxK3izVWzUcP/DhGX/GhR5o8Q50UNiy1eA=="
@@ -25,9 +25,8 @@
 		}
 
 		.sidebar {
-			width: 250px;
+			width: 208px;
 			background-color: #007bff;
-			/* Updated background color to a vibrant blue */
 			padding: 20px 0;
 			height: 100%;
 			position: fixed;
@@ -35,40 +34,34 @@
 			left: 0;
 			overflow-y: auto;
 			transition: background-color 0.3s ease-in-out;
-			/* Smooth transition for background color */
 		}
 
 		.sidebar .nav-link {
 			color: #ffffff;
 			transition: color 0.3s ease-in-out;
-			/* Smooth transition for text color */
 		}
 
 		.sidebar .nav-link:hover {
 			background-color: #0056b3;
-			/* Darker shade on hover */
 		}
 
 		.sidebar .nav-link.active {
 			background-color: #0056b3;
-			/* Darker shade for active link */
 		}
 
 		.sidebar .user-profile img {
 			border: 3px solid #ffffff;
-			/* White border around profile picture */
 		}
 
 		.sidebar h2 {
 			color: #ffffff;
 			margin-bottom: 30px;
 			font-weight: bold;
-			/* Bold font weight for heading */
 		}
 
 		.main-content {
 			margin-left: 250px;
-			padding: 20px;
+			padding: 3px 20px;
 			flex: 1;
 		}
 
@@ -85,7 +78,8 @@
 		}
 
 		.header h1 {
-			margin-bottom: 10px;
+			margin-bottom: 1px;
+  			font-size: 31px;
 		}
 
 		.custom-form {
@@ -131,49 +125,9 @@
 <body>
 
 	<div class="mainContainer">
-
-		<div class="sidebar">
-			<div class="user-profile text-center mb-4">
-				<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-					alt="Profile Picture" class="rounded-circle" width="100" height="100">
-				<div class="user-info mt-2">
-					<h4>John Doe</h4>
-					<p>Admin</p>
-				</div>
-			</div>
-			<h2 class="text-center mb-4">MEDIPRO</h2>
-			<ul class="nav flex-column">
-				<li class="nav-item">
-					<a class="nav-link text-white" href="#dashboard" id="dashboard-link"><i
-							class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-white" href="#patient-management" id="patient-management-link"><i
-							class="fas fa-user-injured mr-2"></i>Patients</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-white" href="#appointments" id="appointments-link"><i
-							class="fas fa-calendar-check mr-2"></i>Appointments</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-white" href="#inventory" id="inventory-link"><i
-							class="fas fa-boxes mr-2"></i>Inventory</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-white" href="#billing" id="billing-link"><i
-							class="fas fa-file-invoice-dollar mr-2"></i>Billing</a>
-				</li>
-			</ul>
-		</div>
-
+		<div class="sidebar" w3-include-html="sidebar.html"></div>
 		<div class="main-content">
-			<div class="header row justify-content-between align-items-center">
-				<div class="left">
-					<h1>Welcome to MEDIPRO</h1>
-				<p>Select a module from the left panel to get started.</p>
-				</div>
-				<button class="btn btn-danger logout-btn w-auto h-50"><i class="fas fa-sign-out-alt"></i> Logout</button>
-			</div>
+			<div class="header row justify-content-between align-items-center" w3-include-html="header.html"></div>
 			<div id="content" class="custom-form"></div>
 		</div>
 
@@ -185,6 +139,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<script src="script.js"></script>
+	<script src="/w3-include.js"></script>
 </body>
 
 </html>
